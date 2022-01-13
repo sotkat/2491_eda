@@ -43,11 +43,12 @@ fev1_plot
 # Add a smooth line of best fit to the plot. 
 
 fev1_plot_improv <- ggplot(data = fev1_sampled, 
-                    aes(x = age, y = FEV1)) + geom_point()
+                    aes(x = age, y = FEV1)) + geom_point(colour = 'white')+
+    labs( x='Age (years)', y = 'FEV1 (L)' ) +
+    theme_dark()
+    
 
 fev1_plot_improv
-
-
 
 # Activity 7
 
