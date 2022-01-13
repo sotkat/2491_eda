@@ -9,7 +9,7 @@
 library(tidyverse)
 
 # read the data in
-fev1 <- read_csv("../data/fev1.csv", col_types = list('id' = 'f'))
+fev1 <- read_csv("data/fev1.csv", col_types = list('id' = 'f'))
 
 # sample the data so that we have 20 patients with more than 6 observations
 
@@ -26,12 +26,12 @@ fev1_sampled
 
 # Calculate the correlation between age and FEV1
 # (yes, this isn't strictly correct because there's repeated measures)
-
+cor(fev1_sampled$age, fev1_sampled$FEV1)
 
 # Build a plot that shows the relationship between FEV1 and age
 
 fev1_plot <- ggplot(data = fev1_sampled, 
-                    aes(x = ..., y = ...)) +
+                    aes(x = age, y = FEV1)) +
     geom_point()
 
 fev1_plot
@@ -41,6 +41,12 @@ fev1_plot
 # Add meaningful labels for the $x$ and $y$ axes, including units, and change the plot's colour theme from the default.
 
 # Add a smooth line of best fit to the plot. 
+
+fev1_plot_improv <- ggplot(data = fev1_sampled, 
+                    aes(x = age, y = FEV1)) + geom_point()
+
+fev1_plot_improv
+
 
 
 # Activity 7
